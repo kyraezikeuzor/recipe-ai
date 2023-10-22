@@ -1,0 +1,223 @@
+.nav {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    box-shadow: var(--box-shadow-primary);
+}
+
+.navbar {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    max-width: 1500px;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    color: #242424;
+    position: absolute;
+    left: 5%;
+    justify-self: start;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar-logo img {
+width: 250px;
+height: auto;
+margin-right: 5px;
+}
+
+
+.fa-typo3 {
+    margin-left: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.nav-menu {
+    position: absolute;
+    right: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-right: 80px;
+    align-items: center;
+}
+
+.nav-item {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    color: #242424;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.nav-links:hover {
+    border-bottom: 4px solid #fff;
+    transition: all 0.2s ease-out;
+}
+
+.fa-bars {
+    color: #242424;
+}
+
+.nav-links-mobile {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.scroll-container {
+display: flex;
+justify-content: center;
+align-items: center;
+white-space: nowrap;
+position: sticky;
+height: 2rem;
+overflow: hidden;
+background-color: var(--color-primary);
+border-bottom: solid #fff 2px;
+}
+
+.scroll-text {
+font-size: 14px;
+margin: 0;
+color: #fff;
+font-weight: 500;
+
+/* Animation Properties */
+-moz-transform: translateX(100%);
+-webkit-transform: translateX(100%);
+transform: translateX(100%);
+
+-moz-animation: my-animation 20s linear infinite;
+-webkit-animation: my-animation 20s linear infinite;
+animation: my-animation 20s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+from { -moz-transform: translateX(100%); }
+to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+from { -webkit-transform: translateX(100%); }
+to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+}
+
+
+@media screen and (max-width: 1160px) {
+    .navbar-logo {
+    font-size: 15px;
+    }
+    .nav-items {
+    position: relative;
+    }
+    .nav-menu {
+    display: none;
+    }
+
+    .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background: linear-gradient(to right, #fdfff8, #fbfeff);
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    padding: 2vh 0;
+    box-sizing: border-box;
+    }
+
+    .nav-links {
+    justify-content: flex-start;
+    transition: all 0.5s ease;
+    padding: 0.5rem;
+    width: 80vw;
+    font-size: 24px;
+    border-bottom: var(--border-color-primary) solid 1px;
+    transition: all .5s ease-in-out;
+    }
+
+    .nav-links:hover {
+    font-size: 24px;
+    opacity: 0.8;
+    border-bottom: var(--border-color-primary) solid 2px;
+    }
+
+    .menu-icon {
+    display: block;
+    position: absolute;
+    right: 0;
+    margin-right: 40px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    }
+
+    .fa-times {
+    color: #242424;
+    font-size: 2rem;
+    }
+
+    .nav-links-mobile {
+    display: block;
+    width: 100%;
+    transition: all 0.3s ease-out;
+    text-decoration: none;
+    color: #242424;
+    font-size: 24px;
+    font-weight: 800px;
+    }
+
+    .nav-links-mobile:hover {
+    opacity: 0.5;
+    color: #242424;
+    transition: 250ms;
+    }
+}

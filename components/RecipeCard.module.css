@@ -1,0 +1,14 @@
+.recipe-card {
+    background-color: #fff;
+    box-shadow: var(--box-shadow-secondary);
+    padding: 2px 2px;
+    cursor: pointer;
+}
+
+.card-blurb {
+    background-color: beige;
+}
+
+.recipe-card p {
+    color: var(--caption-color);
+}

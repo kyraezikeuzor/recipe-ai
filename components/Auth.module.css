@@ -1,0 +1,36 @@
+.auth {
+    background-color: white;
+    box-shadow: var(--box-shadow-primary);
+    border-radius: var(--border-radius);
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 40%;
+}
+
+.auth-btn-group {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.auth-btn {
+    color: var(--color-primary);
+    padding: 6px 18px;
+    font-size: 14px;
+    margin: 2px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 960px) {
+    .auth {
+        width: 100%;
+    }
+}

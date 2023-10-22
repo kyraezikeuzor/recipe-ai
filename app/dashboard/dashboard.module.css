@@ -1,0 +1,28 @@
+.main {
+    padding: var(--padding-primary);
+}
+
+.modal-open {
+    pointer-events: none;
+}
+
+.recipes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-primary);
+}
+
+.add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(241, 245, 246);
+    padding: 20px 40px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.add-icon {
+    width: 60px;
+    height: 60px;
+}
