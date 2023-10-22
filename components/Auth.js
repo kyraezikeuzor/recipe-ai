@@ -10,7 +10,7 @@ export default function Auth() {
     <section className={styles.auth}>
         {!login && <h4>Sign Up</h4>}
         {login && <h4>Login</h4>}
-        <p>Let's get started with your 30 days free trial</p>
+        <p></p>
         <form>
             <label>Email</label>
             <input type="email"/>

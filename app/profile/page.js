@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './profile.module.css'
 
-export default function page() {
+export default function Profile() {
   return (
     <main className={styles.main}>
         <section className={styles.profile}>

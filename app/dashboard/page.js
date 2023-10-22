@@ -7,7 +7,7 @@ import {RecipeView} from '../../components/RecipeView'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCirclePlus} from "@fortawesome/free-solid-svg-icons";
 
-export default function page() {
+export default function Dashboard() {
     const [showModal, setShowModal] = useState(false);
     const [cardTitle, setCardTitle] = useState('');
     const [cardBlurb, setCardBlurb] = useState('');
