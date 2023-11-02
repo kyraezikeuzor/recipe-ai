@@ -1,0 +1,33 @@
+.tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 18px;
+    backdrop-filter: blur(1px);
+    width: fit-content;
+    height: fit-content;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid var(--color-primary);
+    color: var(--color-secondary);
+}
+
+
+.tag p:hover {
+    border: 1px solid var(--color-secondary);
+    font-weight: 600;
+    cursor: pointer;
+}

@@ -1,0 +1,18 @@
+.card {
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 20px;
+    background: var(--white, #FFF);
+    border: var(--border-primary);
+    padding: 20px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.card p {
+    color: var(--caption-color);
+}

@@ -1,0 +1,45 @@
+.recipe {
+    width: 100%;
+    padding: 60px;
+    border-radius: var(--border-radius);
+    border: rgb(233, 233, 233) 2px solid;
+    box-shadow: var(--box-shadow-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    background-color: #fff;
+    overflow-y: scroll;
+}
+
+.recipe-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.recipe-header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.recipe ul li {
+    border-bottom: var(--border-primary);
+}
+
+.recipe ol {
+    list-style: none;
+    counter-reset: my-awesome-counter;
+  }
+.recipe ol li {
+    counter-increment: my-awesome-counter;
+}
+
+.recipe ol li::before {
+    font-size: 20px;
+    content: counter(my-awesome-counter) ". ";
+    font-weight: bold;
+    margin-right: 8px;
+}

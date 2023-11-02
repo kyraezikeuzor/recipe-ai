@@ -9,16 +9,14 @@
 }
 
 .overlay {
-    background-color: rgba(0,0,0, 0.08);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 .modal-content {
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    line-height: 1.4;
     background-color: #fff;
-    padding: 40px;
     border-radius: var(--border-radius);
     max-width: 1000px;
     min-width: 300px;
@@ -27,19 +25,42 @@
     flex-direction: row;
     justify-content: space-between;
     gap: var(--gap-secondary);
-    width: 80vw;
+    width: inherit;
+    height: 95vh;
     box-shadow: var(--box-shadow-primary);
+}
+
+.create-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--gap-secondary);
+    width: 100%;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    border: rgb(233, 233, 233) 2px solid;
+    box-shadow: var(--box-shadow-secondary);
+    background-color: #fff;
+    overflow-y: scroll;
 }
 
 .close-modal {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 30px;
+    right: 30px;
     width: 20px;
     padding: 10px;
     height: 20px;
     cursor:pointer;
 }
+
 
 @media screen and (max-width: 960px) {
     .modal, .overlay {

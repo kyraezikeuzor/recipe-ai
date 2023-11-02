@@ -31,17 +31,15 @@ function Navbar() {
       <div className={styles.navbar}>
           <div className={styles["navbar-container"]}>
               <Link href='/' className={styles["navbar-logo"]} onClick={closeMobileMenu}> 
-                  MealMatch
+                  <img src='/recipe_ai_logo.png'></img>
+                  RecipeAI
               </Link>
 
               <div className={styles["menu-icon"]} onClick={handleClick}>
                 <FontAwesomeIcon icon={click ? faXmark : faBars } className={click ? styles['fa-times'] : styles['fa-bars']}></FontAwesomeIcon>
               </div>
-
               <ul className={click ? `${styles['nav-menu']} ${styles.active}` : styles['nav-menu']}>
-                  
-                <Button>Login</Button>
-                
+      
               </ul>
           </div>
       </div>

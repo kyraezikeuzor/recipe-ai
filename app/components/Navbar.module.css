@@ -1,6 +1,5 @@
 .nav {
     position: sticky;
-    z-index: 1;
     top: 0;
     box-shadow: var(--box-shadow-primary);
 }
@@ -35,12 +34,12 @@
     font-size: 20px;
     text-decoration: none;
     font-weight: 600;
+    gap: 5px;
 }
 
 .navbar-logo img {
-width: 250px;
-height: auto;
-margin-right: 5px;
+    height: auto;
+    width: 30px;
 }
 
 
