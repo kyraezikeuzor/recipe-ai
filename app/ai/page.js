@@ -3,17 +3,81 @@ import styles from './page.module.css'
 require('dotenv').config();
 import React, {useState} from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faXmark} from "@fortawesome/free-solid-svg-icons";
+import {faXmark, faPrint} from "@fortawesome/free-solid-svg-icons";
 import Axios from 'axios'
-import {parseRecipe} from '../../utilities'
+import {Document, Page, View, Text, Image, PDFViewer, StyleSheet, Font} from "@react-pdf/renderer";
+Font.register( {family: "Inter", src: "/assets/font.otf"})
+import Tags from '../components/Tags'
+
+const bullet = "\u2022"; // Unicode character for bullet point
+
+const style = StyleSheet.create({
+    body: {
+        paddingTop: 20,
+        paddingRight: 20,
+        paddingLeft: 20,
+        fontSize: 10
+    },
+    section: {
+      margin: 10,
+      padding: 10,
+      flexGrow: 1,
+    },
+    title: {
+      fontSize: 42
+    },
+    h1: {
+      fontSize: 20,
+      fontWeight: 600,
+      marginTop: 10,
+      marginBottom: 10
+    },
+    tags: {
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap: 'wrap',
+        gap: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    tag: {
+        fontSize: 12,
+        fontWeight: 600
+    }
+})
 
 export default function AI() {
+    const [showPrint, setShowPrint] = useState(false);
+    const handleClick = () => setShowPrint(!showPrint);
+
     const [diet, setDietaryRestrictions] = useState('');
+    const [dietArray, setDietArray] = useState()
     const [dish, setDish] = useState('');
     const [recipe, setRecipe] = useState('');
+    const [recipeTitle, setRecipeTitle] = useState('')
 
     const [response, setResponseText] = useState({});
 
+    const diets = ['Gluten-Free', 'Kosher', 'Vegan', 'Vegetarian', 'Pollotarian', 'Dairy Free', 'Keto', 'Low Carb', 'Wheat Allergy', 'Nut Allergy', 'Fish & Shellfish Allergy', 'Egg Allergy', 'Soy Allergy']
+
+    const handleOptions = (e) => {
+        const selectedOptions = Array.from(e.target.options)
+        .filter(option => option.selected)
+        .map(option => option.value)
+
+        setDietArray(selectedOptions);
+
+        setDietaryRestrictions(selectedOptions);
+
+
+        // Convert the array of selected option values to a string
+        const selectedOptionsString = selectedOptions.join(', ');
+
+    // Update the state with this new string
+         setDietaryRestrictions(selectedOptionsString);
+
+        
+    }
     
     const config = {
         headers: {
@@ -67,86 +131,83 @@ export default function AI() {
           console.log("Error making API call:", error.response || error.message);
         });
     }
-
-    const dog = {
-        "ingredients": [
-          {
-            "quantity": "1 cup",
-            "ingredient": "All-purpose flour"
-          },
-          {
-            "quantity": "1/2 cup",
-            "ingredient": "Cocoa powder"
-          },
-          {
-            "quantity": "1 cup",
-            "ingredient": "Granulated sugar"
-          },
-          {
-            "quantity": "1/2 teaspoon",
-            "ingredient": "Salt"
-          },
-          {
-            "quantity": "1/2 cup",
-            "ingredient": "Vegetable oil"
-          },
-          {
-            "quantity": "1/4 cup",
-            "ingredient": "Water"
-          },
-          {
-            "quantity": "1 teaspoon",
-            "ingredient": "Vanilla extract"
-          },
-          {
-            "quantity": "1/2 cup",
-            "ingredient": "Dairy-free dark chocolate chips"
-          }
-        ],
-        "directions": [
-          "Preheat the oven to 350°F (175°C).",
-          "In a mixing bowl, combine the all-purpose flour, cocoa powder, granulated sugar, and salt.",
-          "Add the vegetable oil, water, and vanilla extract to the dry ingredients. Mix until well combined.",
-          "Fold in the dairy-free dark chocolate chips.",
-          "Pour the batter into a greased 8x8-inch baking dish.",
-          "Bake in the preheated oven for 25-30 minutes, or until a toothpick inserted into the center comes out with a few moist crumbs.",
-          "Remove from the oven and let the brownies cool completely before cutting into squares.",
-          "Enjoy these delicious dairy-free brownies!"
-        ]
-      }
-   
+ 
     
 
   return (
     <main className={styles.main}>
         <div className={styles['create-view']}>
             <div className={styles.view}>
-            
-                {diet && dish && <h3>{diet + ' ' + dish}</h3>}
-                {!diet && !diet && <h3>Recipe</h3>}
+                <div className={styles['btn-group']}>
+                {!showPrint && <button className={styles['btn']} onClick={handleClick}>Print Recipe</button>}
+                {showPrint && <button className={styles['btn']} onClick={handleClick}>View Recipe</button>}
+                </div>
+                {showPrint && <div className={style.pdfViewer}>
+                    <PDFViewer>
+                    <Document>
+                        <Page style={style.body} size="A4">
+                            <View style={style.section}>
+                                {recipeTitle && <Text style={style.title}>
+                                    {recipeTitle}
+                                </Text>}
+                                {!recipeTitle && <Text style={style.title}>
+                                    Recipe
+                                </Text>}
+                                <Text style={style.tags}>
+                                    {dietArray && dietArray.map((item, index) => (
+                                        <Text style={style.tag} key={index}>
+                                            {item + ' ' + bullet + ' '} 
+                                        </Text>
+                                    ))}
+                                </Text>
+                                
+                                <Text style={style.h1}>Ingredients</Text>
+                                {(response && Array.isArray(response.ingredients) && Array.isArray(response.directions)) && response.ingredients.map((item, index) => (
+                                    <Text key={index}>
+                                        {item.quantity} {item.ingredient}
+                                    </Text>
+                                ))}
+                                
+                                <Text style={style.h1}>Directions</Text>
+                                {(response && Array.isArray(response.ingredients) && Array.isArray(response.directions)) && response.directions.map((item, index) => (
+                                <Text key={index}>
+                                    {index + 1} {item}
+                                </Text>
+                                ))}
+                            </View>
+                        </Page>
+                    </Document>
+                    </PDFViewer>
+                </div>}
+                {!showPrint && <div>
+                    {recipeTitle && <h3>{recipeTitle}</h3>}
+                    {!recipeTitle && <h3>Recipe</h3>}
+                    <Tags>
+                        {diet}
+                    </Tags>
 
-                <h4>Ingredients</h4>
-            <ul>
-                {(response && Array.isArray(response.ingredients) && Array.isArray(response.directions)) && response.ingredients.map((item, index) => (
-                <li key={index}>
-                    {item.quantity} {item.ingredient}
-                </li>
-                ))
-                }
-            </ul>
+                    <h4>Ingredients</h4>
+                    <ul>
+                        {(response && Array.isArray(response.ingredients) && Array.isArray(response.directions)) && response.ingredients.map((item, index) => (
+                        <li key={index}>
+                            {item.quantity} {item.ingredient}
+                        </li>
+                        ))
+                        }
+                    </ul>
 
-            <h4>Directions</h4>
-            <ol>
-                {(response && Array.isArray(response.ingredients) && Array.isArray(response.directions)) && response.directions.map((item, index) => (
-                <li key={index}>
-                    {item}
-                </li>
-                ))
-                }
-            </ol>
-
+                    <h4>Directions</h4>
+                    <ol>
+                        {(response && Array.isArray(response.ingredients) && Array.isArray(response.directions)) && response.directions.map((item, index) => (
+                        <li key={index}>
+                            {item}
+                        </li>
+                        ))
+                        }
+                    </ol>
+                </div>}
+                
             </div>
-            
             <div className={styles.view}>
                 <h3>Generate Recipe</h3>
                 <form method="POST">
@@ -160,10 +221,28 @@ export default function AI() {
                     <p>Enter the link to your recipe (Optional)</p>
                     <input onChange={(e) => {setRecipe(e.target.value)}}/>
 
+                    <br/>
+
                     <label>Dietary Restrictions</label>
-                    <p>Enter the dietary restrictions.</p>
-                    <input type="text" name='diet' onChange={(e) => {setDietaryRestrictions(e.target.value)}} /> 
+                    <p>Enter the dietary restrictions. Press ctrl + shift or cmd + shift to select multiple.</p>
+                    <input type="text" name='diet' value={diet} readOnly/> 
                     
+                    <select multiple={true} onChange={handleOptions}>
+                        {diets.map((item, index) => (
+                            <option value={item} key={index}>
+                                {item}
+                            </option>
+                        ))}
+                    </select>
+
+                    <br/>
+
+                    <label>Enter Recipe Title</label>
+                    <p>Enter a title for your special recipe</p>
+                    <input type="text" onChange={(e) => {setRecipeTitle(e.target.value)}} />
+                    
+                    <br/>
+
                     <br/>
 
                     <input type="submit" value="Generate" onClick={handle}/>
