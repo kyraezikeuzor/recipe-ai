@@ -61,7 +61,7 @@ export default function AI() {
 
     const [response, setResponseText] = useState({});
 
-    const diets = ['Gluten-Free', 'Kosher', 'Vegan', 'Vegetarian', 'Pollotarian', 'Dairy Free', 'Keto', 'Low Carb', 'Wheat Allergy', 'Nut Allergy', 'Fish & Shellfish Allergy', 'Egg Allergy', 'Soy Allergy']
+    const diets = ['Gluten Free', 'Kosher', 'Vegan', 'Vegetarian', 'Pollotarian', 'Dairy Free', 'Keto', 'Low Carb', 'Wheat Allergy', 'Nut Allergy', 'Fish & Shellfish Allergy', 'Egg Allergy', 'Soy Allergy']
 
     const handleOptions = (e) => {
         const selectedOptions = Array.from(e.target.options)
@@ -160,7 +160,7 @@ export default function AI() {
                                 <Text style={style.tags}>
                                     {dietArray && dietArray.map((item, index) => (
                                         <Text style={style.tag} key={index}>
-                                            {item + ' ' + bullet + ' '} 
+                                            {item + '  '} 
                                         </Text>
                                     ))}
                                 </Text>
