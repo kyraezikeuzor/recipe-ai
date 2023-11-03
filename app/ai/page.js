@@ -229,15 +229,11 @@ export default function AI() {
                         <input type="text" onChange={(e) => {setDish(e.target.value)}} />
                     </div>}
 
-                    <br/>
-
                     {showLink && <div>
                         <label>Enter Recipe Link </label>
                         <p>Enter the link to your recipe.</p>
                         <input onChange={(e) => {setRecipe(e.target.value)}}/>
                     </div>}
-
-                    
 
                     <br/>
 
