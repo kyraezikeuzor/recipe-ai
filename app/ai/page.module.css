@@ -78,6 +78,11 @@
     font-weight: 600;
 }
 
+.btn:disabled {
+    background-color:#e6e6e6;
+    color: #242424;
+}
+
 @media screen and (max-width: 960px) {
     .main {
         flex-direction: column;

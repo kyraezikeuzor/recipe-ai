@@ -50,6 +50,9 @@ export default function AI() {
     const [showPrint, setShowPrint] = useState(false);
     const handleClick = () => setShowPrint(!showPrint);
 
+    const [showLink, setShowLink] = useState(false);
+    const handleInput = () => setShowLink(!showLink);
+
     const [diet, setDietaryRestrictions] = useState('');
     const [dietArray, setDietArray] = useState()
     const [dish, setDish] = useState('');
@@ -139,8 +142,9 @@ export default function AI() {
         <div className={styles['create-view']}>
             <div className={styles.view}>
                 <div className={styles['btn-group']}>
-                {!showPrint && <button className={styles['btn']} onClick={handleClick}>Print Recipe</button>}
-                {showPrint && <button className={styles['btn']} onClick={handleClick}>View Recipe</button>}
+                    <button className={styles['btn']} onClick={handleClick} disabled={!showPrint}>View Recipe</button>
+                    <button className={styles['btn']} onClick={handleClick} disabled={showPrint}>Print Recipe</button>
+                    
                 </div>
                 {showPrint && <div className={style.pdfViewer}>
                     <PDFViewer>
@@ -209,17 +213,31 @@ export default function AI() {
                 
             </div>
             <div className={styles.view}>
+                <div className={styles['btn-group']}>
+                    <button className={styles['btn']} onClick={handleInput} disabled={!showLink}>Use Text</button>
+                    <button className={styles['btn']} onClick={handleInput} disabled={showLink}>Use Link</button>
+                </div>
+
                 <h3>Generate Recipe</h3>
+                
+
                 <form method="POST">
-                    <label>Enter Recipe</label>
-                    <p>Enter the dish to make and the AI will mend the recipe for you.</p>
-                    <input type="text" onChange={(e) => {setDish(e.target.value)}} />
-                    
+
+                    {!showLink && <div>
+                        <label>Enter Recipe</label>
+                        <p>Enter the dish you want to make, and the AI will mend the recipe for you.</p>
+                        <input type="text" onChange={(e) => {setDish(e.target.value)}} />
+                    </div>}
+
                     <br/>
 
-                    <label>Enter Recipe Link </label>
-                    <p>Enter the link to your recipe (Optional)</p>
-                    <input onChange={(e) => {setRecipe(e.target.value)}}/>
+                    {showLink && <div>
+                        <label>Enter Recipe Link </label>
+                        <p>Enter the link to your recipe.</p>
+                        <input onChange={(e) => {setRecipe(e.target.value)}}/>
+                    </div>}
+
+                    
 
                     <br/>
 
@@ -238,7 +256,7 @@ export default function AI() {
                     <br/>
 
                     <label>Enter Recipe Title</label>
-                    <p>Enter a title for your special recipe</p>
+                    <p>Enter a title for your recipe.</p>
                     <input type="text" onChange={(e) => {setRecipeTitle(e.target.value)}} />
                     
                     <br/>
