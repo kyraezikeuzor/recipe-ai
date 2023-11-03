@@ -87,7 +87,7 @@ export default function AI() {
     };
 
     const userMessage = 'Generate me a recipe for' + `${dish}` + 'modified for the dietary restriction(s) of' + `${diet}`;
-    const linkMessage = 'Scan the website of this recipe link: ' + `${recipe}` + '. Modify the recipe for the dietary restrictions of' + `${diet}` + 'Return the ingredients and directions of the recipe in a neat format.'
+    const linkMessage = 'Scan the website of this recipe link: ' + `${recipe}` + '. Modify the recipe for the dietary restrictions of' + `${diet}.`
 
     const message = [
         {
@@ -96,7 +96,7 @@ export default function AI() {
         },
         {
             role: "system", 
-            content: "You are recipe generator. You will generate recipes modified for a dietary restriction or multiple dietary restrictions. Respond with the recipe in a structured JSON format, with two top-level keys: 'ingredients' as an array of objects with 'quantity' and 'ingredient' keys, and 'directions' as an array of strings. Use the passed in chats as a basis on what to return depending on certain prompts and how to return them. Do not memorize the recipes and give out the exact same input. If you cannot complete the task, respond with an empty JSON object."
+            content: "You are recipe generator. You will generate recipes modified for a dietary restriction or multiple dietary restrictions. Respond with the recipe in a structured JSON format, with two top-level keys: 'ingredients' as an array of objects with 'quantity' and 'ingredient' keys, and 'directions' as an array of strings. Use the passed in chats as a basis on what to return depending on certain prompts and how to return them. Do not memorize the recipes and give out the exact same input. If you cannot complete the task, respond with an empty JSON object. Do not add any extra text to your response."
         }
     ]
     if (!recipe) {
