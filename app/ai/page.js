@@ -122,7 +122,8 @@ export default function AI() {
         <div className={styles['create-view']}>
             <div className={styles.view}>
             
-                <h3>Recipe</h3>
+                {diet && dish && <h3>{diet + ' ' + dish}</h3>}
+                {!diet && !diet && <h3>Recipe</h3>}
 
                 <h4>Ingredients</h4>
             <ul>
@@ -156,7 +157,7 @@ export default function AI() {
                     <br/>
 
                     <label>Enter Recipe Link </label>
-                    <p>Enter the link to your recipe</p>
+                    <p>Enter the link to your recipe (Optional)</p>
                     <input onChange={(e) => {setRecipe(e.target.value)}}/>
 
                     <label>Dietary Restrictions</label>
