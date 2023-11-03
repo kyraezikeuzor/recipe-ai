@@ -21,7 +21,7 @@ export default function Home() {
             <h1><u>RecipeAI</u> mends recipes to fit your dietary needs 🥬</h1>
             <p>We adapt recipes to match your dietary preferences, making cooking a breeze. Savor dishes that cater to your tastes, all at the click of a button.</p>
             <Tags>
-              Gluten-Free, Kosher, Vegan, Vegetarian, Pollitarian, Dairy Free, Lactose intolerance, Keto, Low carb, Wheat Allergy, Nut Allergy, Fish & Shellfish Allergy, Egg Allergy, Soy Allergy
+              Gluten Free, Kosher, Vegan, Vegetarian, Pollotarian, Dairy Free, Lactose Intolerance, Keto, Low Carb, Wheat Allergy, Nut Allergy, Fish & Shellfish Allergy, Egg Allergy, Soy Allergy
             </Tags>
           </header>
         </section>
