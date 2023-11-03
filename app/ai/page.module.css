@@ -1,0 +1,33 @@
+.main {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    pointer-events: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-secondary);
+    width: inherit;
+    box-shadow: var(--box-shadow-primary);
+}
+
+.create-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--gap-secondary);
+    width: 100%;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    border: rgb(233, 233, 233) 2px solid;
+    box-shadow: var(--box-shadow-secondary);
+    background-color: #fff;
+    overflow-y: scroll;
+}

@@ -12,17 +12,9 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCirclePlus} from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
-  const [showModal, setShowModal] = useState(false);
-  const [mode, setMode] = useState('')
 
-  const openModal = (show, mode) => {
-    setMode(mode);
-    setShowModal(show);
-}
 
   return (
-    <div>
-      <Navbar/>
       <main className={styles.main}>
         <section className={styles.hero}>
           <header>
@@ -32,20 +24,8 @@ export default function Home() {
               Gluten-Free, Kosher, Vegan, Vegetarian, Pollitarian, Dairy Free, Lactose intolerance, Keto, Low carb, Wheat Allergy, Nut Allergy, Fish & Shellfish Allergy, Egg Allergy, Soy Allergy
             </Tags>
           </header>
-          <section>
-            <h1>Try out the AI!</h1>
-            <p>We adapt recipes to match your dietary preferences, making cooking a breeze. Savor dishes that cater to your tastes, all at the click of a button.</p>
-            <div onClick={() => openModal(true, 'create')}>
-                  <Tag>
-                      <FontAwesomeIcon icon={faCirclePlus} className={styles['add-icon']}/> New Recipe
-                  </Tag>
-              </div>
-          </section>
-          
         </section>
       </main>
-      {showModal && <Modal setShowModal={setShowModal} mode={mode}/>}
-    </div>
     
   )
 }
