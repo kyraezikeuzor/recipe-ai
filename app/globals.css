@@ -168,7 +168,6 @@ ul li {
 }
 
 *::-webkit-scrollbar-thumb {
-  
   border-radius: 20px;
   
 }
@@ -192,8 +191,30 @@ ul li {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+@media screen and (max-width: 701px) {
+  
+h1 {
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+h4 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+h5 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+h6 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
 }
