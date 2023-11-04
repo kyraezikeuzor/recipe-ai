@@ -88,4 +88,7 @@
         flex-direction: column;
         padding: 2vh 4vw;
     }
+    .create-view {
+        flex-direction: column;
+    }
 }
