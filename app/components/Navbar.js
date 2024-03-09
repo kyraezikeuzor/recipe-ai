@@ -38,9 +38,6 @@ function Navbar() {
               <div className={styles["menu-icon"]} onClick={handleClick}>
                 <FontAwesomeIcon icon={click ? faXmark : faBars } className={click ? styles['fa-times'] : styles['fa-bars']}></FontAwesomeIcon>
               </div>
-              <ul className={click ? `${styles['nav-menu']} ${styles.active}` : styles['nav-menu']}>
-                <li className={styles["nav-item"]}> <Link  onClick={closeMobileMenu} className={styles["nav-links"]} href='/ai' >Try AI </Link></li>
-              </ul>
           </div>
       </div>
     </nav>

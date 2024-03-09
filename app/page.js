@@ -10,24 +10,13 @@ import {Modal} from './components/Modal'
 import {Tag} from './components/Tag'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCirclePlus} from "@fortawesome/free-solid-svg-icons";
+import AI from './components/AI'
 
 export default function Home() {
 
 
   return (
-      <main className={styles.main}>
-        <section className={styles.hero}>
-          <header>
-            <Button path='/ai'>Click here to use the AI →</Button>
-            <h1><u>RecipeAI</u> mends recipes to fit your dietary needs 🥬</h1>
-            <p>We adapt recipes to match your dietary preferences, making cooking a breeze. Savor dishes that cater to your tastes, all at the click of a button.</p>
-            <Tags>
-              Gluten Free, Kosher, Vegan, Vegetarian, Pollotarian, Dairy Free, Lactose Intolerance, Keto, Low Carb, Wheat Allergy, Nut Allergy, Fish & Shellfish Allergy, Egg Allergy, Soy Allergy
-            </Tags>
-            
-          </header>
-        </section>
-      </main>
+    <AI/>
     
   )
 }

@@ -1,5 +1,5 @@
 'use client'
-import styles from './page.module.css'
+import styles from './AI.module.css'
 require('dotenv').config();
 import React, {useState} from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -7,7 +7,7 @@ import {faXmark, faPrint} from "@fortawesome/free-solid-svg-icons";
 import Axios from 'axios'
 import {Document, Page, View, Text, Image, PDFViewer, StyleSheet, Font} from "@react-pdf/renderer";
 Font.register( {family: "Inter", src: "/assets/font.otf"})
-import Tags from '../components/Tags'
+import Tags from './Tags'
 
 const bullet = "\u2022"; // Unicode character for bullet point
 
