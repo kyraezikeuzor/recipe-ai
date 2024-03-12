@@ -35,9 +35,9 @@ function Navbar() {
                   RecipeAI
               </Link>
 
-              <div className={styles["menu-icon"]} onClick={handleClick}>
+              {/*<div className={styles["menu-icon"]} onClick={handleClick}>
                 <FontAwesomeIcon icon={click ? faXmark : faBars } className={click ? styles['fa-times'] : styles['fa-bars']}></FontAwesomeIcon>
-              </div>
+                </div>*/}
           </div>
       </div>
     </nav>

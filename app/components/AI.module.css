@@ -6,7 +6,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: var(--gap-secondary);
+    gap: 10px;
     width: inherit;
     box-shadow: var(--box-shadow-primary);
 }
@@ -75,7 +75,6 @@
     outline: none;
     border: none;
     cursor: pointer;
-    font-weight: 600;
 }
 
 .btn:disabled {

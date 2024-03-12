@@ -16,7 +16,18 @@ export default function Home() {
 
 
   return (
-    <AI/>
+    <main>
+      <header className={styles.header}>
+        <h1> 
+          <img src='/recipe_ai_logo.png'/>
+          Recipe AI
+        </h1>
+        <p>
+          Enter a dish you would like to make, then input your dietary restrictions for the AI to modify the recipe to your diet.
+        </p>
+      </header>
+      <AI/>
+    </main>
     
   )
 }

@@ -138,7 +138,7 @@ export default function AI() {
     
 
   return (
-    <main className={styles.main}>
+    <section className={styles.main}>
         <div className={styles['create-view']}>
             <div className={styles.view}>
                 <div className={styles['btn-group']}>
@@ -264,6 +264,6 @@ export default function AI() {
                 
             </div>
         </div>
-    </main>
+    </section>
   )
 }
